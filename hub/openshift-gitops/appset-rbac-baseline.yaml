@@ -18,7 +18,7 @@ spec:
       destination:
         server: "{{server}}"
       source:
-        repoURL: https://git.example.com/platform/rbac.git   # ← change me
+        repoURL: https://github.com/h8x0rd/acm-gitops-rbac.git   # ← change me
         targetRevision: main
         path: rbac
       syncPolicy:
