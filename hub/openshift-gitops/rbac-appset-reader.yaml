@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: acm-placement-reader
+  namespace: openshift-gitops
+rules:
+- apiGroups: ["cluster.open-cluster-management.io"]
+  resources: ["placements","placementdecisions"]
+  verbs: ["get","list","watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: appsset-controller-acm
+  namespace: openshift-gitops
+subjects:
+- kind: ServiceAccount
+  name: openshift-gitops-applicationset-controller
+  namespace: openshift-gitops
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: acm-placement-reader

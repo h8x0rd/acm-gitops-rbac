@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: appA
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: appB

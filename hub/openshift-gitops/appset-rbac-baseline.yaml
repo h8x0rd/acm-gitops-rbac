@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: rbac-baseline
+  namespace: openshift-gitops
+spec:
+  generators:
+  - clusterDecisionResource:
+      configMapRef: acm-placement
+      labelSelector:
+        matchLabels:
+          cluster.open-cluster-management.io/placement: rbac-baseline
+  template:
+    metadata:
+      name: rbac-{{name}}
+    spec:
+      project: default
+      destination:
+        server: "{{server}}"
+      source:
+        repoURL: https://git.example.com/platform/rbac.git   # ← change me
+        targetRevision: main
+        path: rbac
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true

@@ -1,0 +1,111 @@
+# Ops: full app management incl. Secrets (no RBAC/SCC)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ops-namespace-maintainer
+  namespace: default
+rules:
+- apiGroups: ["", "apps", "batch", "autoscaling", "networking.k8s.io", "policy", "route.openshift.io", "image.openshift.io", "build.openshift.io"]
+  resources:
+    - pods
+    - pods/log
+    - pods/exec
+    - pods/portforward
+    - services
+    - endpoints
+    - configmaps
+    - secrets
+    - serviceaccounts
+    - events
+    - persistentvolumeclaims
+    - deployments
+    - replicasets
+    - statefulsets
+    - daemonsets
+    - jobs
+    - cronjobs
+    - horizontalpodautoscalers
+    - networkpolicies
+    - poddisruptionbudgets
+    - ingresses
+    - routes
+    - routes/custom-host
+    - imagestreams
+    - imagestreamtags
+    - builds
+    - buildconfigs
+  verbs: ["get","list","watch","create","update","patch","delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ops-namespace-maintainer
+  namespace: appA
+rules:
+- apiGroups: ["", "apps", "batch", "autoscaling", "networking.k8s.io", "policy", "route.openshift.io", "image.openshift.io", "build.openshift.io"]
+  resources:
+    - pods
+    - pods/log
+    - pods/exec
+    - pods/portforward
+    - services
+    - endpoints
+    - configmaps
+    - secrets
+    - serviceaccounts
+    - events
+    - persistentvolumeclaims
+    - deployments
+    - replicasets
+    - statefulsets
+    - daemonsets
+    - jobs
+    - cronjobs
+    - horizontalpodautoscalers
+    - networkpolicies
+    - poddisruptionbudgets
+    - ingresses
+    - routes
+    - routes/custom-host
+    - imagestreams
+    - imagestreamtags
+    - builds
+    - buildconfigs
+  verbs: ["get","list","watch","create","update","patch","delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ops-namespace-maintainer
+  namespace: appB
+rules:
+- apiGroups: ["", "apps", "batch", "autoscaling", "networking.k8s.io", "policy", "route.openshift.io", "image.openshift.io", "build.openshift.io"]
+  resources:
+    - pods
+    - pods/log
+    - pods/exec
+    - pods/portforward
+    - services
+    - endpoints
+    - configmaps
+    - secrets
+    - serviceaccounts
+    - events
+    - persistentvolumeclaims
+    - deployments
+    - replicasets
+    - statefulsets
+    - daemonsets
+    - jobs
+    - cronjobs
+    - horizontalpodautoscalers
+    - networkpolicies
+    - poddisruptionbudgets
+    - ingresses
+    - routes
+    - routes/custom-host
+    - imagestreams
+    - imagestreamtags
+    - builds
+    - buildconfigs
+  verbs: ["get","list","watch","create","update","patch","delete"]

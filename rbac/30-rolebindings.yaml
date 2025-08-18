@@ -1,0 +1,60 @@
+# Bind your IdP groups to the custom Roles
+
+# default
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: ops-admin, namespace: default }
+subjects: [{ kind: Group, name: ops }]
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: ops-namespace-maintainer }
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: developer-edit, namespace: default }
+subjects: [{ kind: Group, name: developer }]
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: developer-deployer-nosecrets }
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: readonly-view, namespace: default }
+subjects: [{ kind: Group, name: readonly }]
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: readonly-auditor-nosecrets }
+
+# appA
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: ops-admin, namespace: appA }
+subjects: [{ kind: Group, name: ops }]
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: ops-namespace-maintainer }
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: developer-edit, namespace: appA }
+subjects: [{ kind: Group, name: developer }]
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: developer-deployer-nosecrets }
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: readonly-view, namespace: appA }
+subjects: [{ kind: Group, name: readonly }]
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: readonly-auditor-nosecrets }
+
+# appB
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: ops-admin, namespace: appB }
+subjects: [{ kind: Group, name: ops }]
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: ops-namespace-maintainer }
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: developer-edit, namespace: appB }
+subjects: [{ kind: Group, name: developer }]
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: developer-deployer-nosecrets }
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: readonly-view, namespace: appB }
+subjects: [{ kind: Group, name: readonly }]
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: readonly-auditor-nosecrets }

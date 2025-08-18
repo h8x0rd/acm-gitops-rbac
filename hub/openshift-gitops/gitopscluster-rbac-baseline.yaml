@@ -1,0 +1,13 @@
+apiVersion: apps.open-cluster-management.io/v1beta1
+kind: GitOpsCluster
+metadata:
+  name: rbac-baseline
+  namespace: openshift-gitops
+spec:
+  argoServer:
+    cluster: local
+    argoNamespace: openshift-gitops
+  placementRef:
+    apiVersion: cluster.open-cluster-management.io/v1beta1
+    kind: Placement
+    name: rbac-baseline
