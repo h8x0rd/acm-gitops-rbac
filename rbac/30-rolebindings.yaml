@@ -3,58 +3,148 @@
 # default
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: ops-admin, namespace: default }
-subjects: [{ kind: Group, name: ops }]
-roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: ops-namespace-maintainer }
+metadata:
+  name: ops-admin
+  namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+subjects:
+- kind: Group
+  name: ops
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ops-namespace-maintainer
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: developer-edit, namespace: default }
-subjects: [{ kind: Group, name: developer }]
-roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: developer-deployer-nosecrets }
+metadata:
+  name: developer-edit
+  namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+subjects:
+- kind: Group
+  name: developer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: developer-deployer-nosecrets
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: readonly-view, namespace: default }
-subjects: [{ kind: Group, name: readonly }]
-roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: readonly-auditor-nosecrets }
+metadata:
+  name: readonly-view
+  namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+subjects:
+- kind: Group
+  name: readonly
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: readonly-auditor-nosecrets
 
 # app1
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: ops-admin, namespace: app1 }
-subjects: [{ kind: Group, name: ops }]
-roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: ops-namespace-maintainer }
+metadata:
+  name: ops-admin
+  namespace: app1
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+subjects:
+- kind: Group
+  name: ops
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ops-namespace-maintainer
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: developer-edit, namespace: app1 }
-subjects: [{ kind: Group, name: developer }]
-roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: developer-deployer-nosecrets }
+metadata:
+  name: developer-edit
+  namespace: app1
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+subjects:
+- kind: Group
+  name: developer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: developer-deployer-nosecrets
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: readonly-view, namespace: app1 }
-subjects: [{ kind: Group, name: readonly }]
-roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: readonly-auditor-nosecrets }
+metadata:
+  name: readonly-view
+  namespace: app1
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+subjects:
+- kind: Group
+  name: readonly
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: readonly-auditor-nosecrets
 
 # app2
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: ops-admin, namespace: app2 }
-subjects: [{ kind: Group, name: ops }]
-roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: ops-namespace-maintainer }
+metadata:
+  name: ops-admin
+  namespace: app2
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+subjects:
+- kind: Group
+  name: ops
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ops-namespace-maintainer
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: developer-edit, namespace: app2 }
-subjects: [{ kind: Group, name: developer }]
-roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: developer-deployer-nosecrets }
+metadata:
+  name: developer-edit
+  namespace: app2
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+subjects:
+- kind: Group
+  name: developer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: developer-deployer-nosecrets
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: readonly-view, namespace: app2 }
-subjects: [{ kind: Group, name: readonly }]
-roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: readonly-auditor-nosecrets }
+metadata:
+  name: readonly-view
+  namespace: app2
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+subjects:
+- kind: Group
+  name: readonly
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: readonly-auditor-nosecrets

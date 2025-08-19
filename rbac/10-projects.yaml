@@ -1,10 +1,16 @@
-# projects-app1-app2.yaml
+# rbac/00-projects.yaml
 apiVersion: project.openshift.io/v1
 kind: Project
 metadata:
   name: app1
+  annotations:
+    openshift.io/display-name: "App 1"
+    argocd.argoproj.io/sync-wave: "0"
 ---
 apiVersion: project.openshift.io/v1
 kind: Project
 metadata:
   name: app2
+  annotations:
+    openshift.io/display-name: "App 2"
+    argocd.argoproj.io/sync-wave: "0"
