@@ -1,7 +1,7 @@
 # OpenShift RBAC Enforcement with ACM + OpenShift GitOps
 
 This repo contains:
-- **rbac/**: Namespace Roles/RoleBindings for `default`, `appA`, `appB`
+- **rbac/**: Namespace Roles/RoleBindings for `default`, `app1`, `app2`
 - **hub/openshift-gitops/**: ACM Placement + GitOpsCluster + ApplicationSet glue (apply on the hub cluster)
 - **hub/policies/**: ACM Governance Policy + Placement/Binding to enforce and report drift
 
