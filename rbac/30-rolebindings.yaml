@@ -19,42 +19,42 @@ metadata: { name: readonly-view, namespace: default }
 subjects: [{ kind: Group, name: readonly }]
 roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: readonly-auditor-nosecrets }
 
-# appA
+# app1
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: ops-admin, namespace: appA }
+metadata: { name: ops-admin, namespace: app1 }
 subjects: [{ kind: Group, name: ops }]
 roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: ops-namespace-maintainer }
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: developer-edit, namespace: appA }
+metadata: { name: developer-edit, namespace: app1 }
 subjects: [{ kind: Group, name: developer }]
 roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: developer-deployer-nosecrets }
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: readonly-view, namespace: appA }
+metadata: { name: readonly-view, namespace: app1 }
 subjects: [{ kind: Group, name: readonly }]
 roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: readonly-auditor-nosecrets }
 
-# appB
+# app2
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: ops-admin, namespace: appB }
+metadata: { name: ops-admin, namespace: app2 }
 subjects: [{ kind: Group, name: ops }]
 roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: ops-namespace-maintainer }
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: developer-edit, namespace: appB }
+metadata: { name: developer-edit, namespace: app2 }
 subjects: [{ kind: Group, name: developer }]
 roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: developer-deployer-nosecrets }
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata: { name: readonly-view, namespace: appB }
+metadata: { name: readonly-view, namespace: app2 }
 subjects: [{ kind: Group, name: readonly }]
 roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: readonly-auditor-nosecrets }
