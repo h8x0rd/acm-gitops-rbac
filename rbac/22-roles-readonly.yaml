@@ -4,6 +4,9 @@ kind: Role
 metadata:
   name: readonly-auditor-nosecrets
   namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 rules:
 - apiGroups: ["", "apps", "batch", "autoscaling", "networking.k8s.io", "policy", "route.openshift.io", "image.openshift.io", "build.openshift.io"]
   resources:
@@ -36,6 +39,9 @@ kind: Role
 metadata:
   name: readonly-auditor-nosecrets
   namespace: app1
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 rules:
 - apiGroups: ["", "apps", "batch", "autoscaling", "networking.k8s.io", "policy", "route.openshift.io", "image.openshift.io", "build.openshift.io"]
   resources:
@@ -68,6 +74,9 @@ kind: Role
 metadata:
   name: readonly-auditor-nosecrets
   namespace: app2
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 rules:
 - apiGroups: ["", "apps", "batch", "autoscaling", "networking.k8s.io", "policy", "route.openshift.io", "image.openshift.io", "build.openshift.io"]
   resources:

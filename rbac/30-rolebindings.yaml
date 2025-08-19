@@ -7,7 +7,7 @@ metadata:
   name: ops-admin
   namespace: default
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 subjects:
 - kind: Group
@@ -23,7 +23,7 @@ metadata:
   name: developer-edit
   namespace: default
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 subjects:
 - kind: Group
@@ -39,7 +39,7 @@ metadata:
   name: readonly-view
   namespace: default
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 subjects:
 - kind: Group
@@ -57,7 +57,7 @@ metadata:
   name: ops-admin
   namespace: app1
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 subjects:
 - kind: Group
@@ -73,7 +73,7 @@ metadata:
   name: developer-edit
   namespace: app1
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 subjects:
 - kind: Group
@@ -89,7 +89,7 @@ metadata:
   name: readonly-view
   namespace: app1
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 subjects:
 - kind: Group
@@ -107,7 +107,7 @@ metadata:
   name: ops-admin
   namespace: app2
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 subjects:
 - kind: Group
@@ -123,7 +123,7 @@ metadata:
   name: developer-edit
   namespace: app2
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 subjects:
 - kind: Group
@@ -139,7 +139,7 @@ metadata:
   name: readonly-view
   namespace: app2
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 subjects:
 - kind: Group

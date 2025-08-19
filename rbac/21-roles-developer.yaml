@@ -4,6 +4,9 @@ kind: Role
 metadata:
   name: developer-deployer-nosecrets
   namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 rules:
 - apiGroups: ["apps"]
   resources: ["deployments","replicasets","statefulsets","daemonsets"]
@@ -32,6 +35,9 @@ kind: Role
 metadata:
   name: developer-deployer-nosecrets
   namespace: app1
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 rules:
 - apiGroups: ["apps"]
   resources: ["deployments","replicasets","statefulsets","daemonsets"]
@@ -60,6 +66,9 @@ kind: Role
 metadata:
   name: developer-deployer-nosecrets
   namespace: app2
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 rules:
 - apiGroups: ["apps"]
   resources: ["deployments","replicasets","statefulsets","daemonsets"]
