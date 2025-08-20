@@ -70,6 +70,9 @@ rules:
 - apiGroups: ["build.openshift.io"]
   resources: ["buildconfigs","builds","buildconfigs/webhooks"]
   verbs: ["get","list","watch","create","update","patch","delete"]
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["create","update","patch","delete"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -111,3 +114,6 @@ rules:
 - apiGroups: ["build.openshift.io"]
   resources: ["buildconfigs","builds","buildconfigs/webhooks"]
   verbs: ["get","list","watch","create","update","patch","delete"]
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["create","update","patch","delete"]
