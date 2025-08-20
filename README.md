@@ -25,5 +25,5 @@ oc apply -f hub/policies/
 
 ## Notes
 - We **do not** create the `default` namespace; we only bind roles in it.
-- Custom Roles are least-privilege: `ops` includes Secret access, `developer` excludes Secrets, `readonly` is read-only without Secrets.
+- Custom Roles are least-privilege: `ops` includes Secret access, `developer` can create own secrets in order to deploy sample apps, but cannot view/edit any secrets, `readonly` is read-only without Secrets.
 - ACM Governance `Policy` asserts that RoleBindings and Roles exist and match (auto-remediate with `remediationAction: enforce`).
