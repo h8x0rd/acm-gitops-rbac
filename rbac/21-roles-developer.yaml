@@ -60,6 +60,16 @@ rules:
 - apiGroups: ["policy"]
   resources: ["poddisruptionbudgets"]
   verbs: ["get","list","watch","create","update","patch","delete"]
+- apiGroups: ["image.openshift.io"]
+  resources:
+    - imagestreams
+    - imagestreamtags
+    - imagestreams/layers     # needed for pushing to internal registry
+    - imagestreamimports      # needed for `oc import-image` / console imports
+  verbs: ["get","list","watch","create","update","patch","delete"]
+- apiGroups: ["build.openshift.io"]
+  resources: ["buildconfigs","builds","buildconfigs/webhooks"]
+  verbs: ["get","list","watch","create","update","patch","delete"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -90,4 +100,14 @@ rules:
   verbs: ["get","list","watch","create","update","patch","delete"]
 - apiGroups: ["policy"]
   resources: ["poddisruptionbudgets"]
+  verbs: ["get","list","watch","create","update","patch","delete"]
+- apiGroups: ["image.openshift.io"]
+  resources:
+    - imagestreams
+    - imagestreamtags
+    - imagestreams/layers     # needed for pushing to internal registry
+    - imagestreamimports      # needed for `oc import-image` / console imports
+  verbs: ["get","list","watch","create","update","patch","delete"]
+- apiGroups: ["build.openshift.io"]
+  resources: ["buildconfigs","builds","buildconfigs/webhooks"]
   verbs: ["get","list","watch","create","update","patch","delete"]
